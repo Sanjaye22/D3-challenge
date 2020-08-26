@@ -1,5 +1,4 @@
 // @TODO: YOUR CODE HERE!
-//============Set up chart=====================
 //Define SVG area dimensions
 var svgWidth = 960;
 var svgHeight = 660;
@@ -16,7 +15,6 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// <-----reate an SVG wrapper,append an SVG group that will hold chart and set margins----->
 // Select body, append SVG area to it, and set the dimensions
 var svg = d3
   .select("#scatter")
@@ -28,7 +26,7 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// <-----Load data from Census data.csv and format numerical values----->
+//Load data from Census data.csv and format numerical values
 d3.csv("assets/data/data.csv").then(function(CensusData) {
   CensusData.forEach(function(data) {
     data.healthcare = +data.healthcare;
@@ -36,7 +34,7 @@ d3.csv("assets/data/data.csv").then(function(CensusData) {
     // console.log(data);
   });
 
-  // <-----Create X & Y Scales----->
+  //Create X & Y Scales
   const xScale = d3.scaleLinear()
     .domain(d3.extent(CensusData, d => d.healthcare))
     .range([0, width])
@@ -47,18 +45,18 @@ d3.csv("assets/data/data.csv").then(function(CensusData) {
     .range([height, 0])
     .nice();
   
-  // <-----Create Axes----->
+  //Create Axes
   const xAxis = d3.axisBottom(xScale);
   const yAxis = d3.axisLeft(yScale);
 
 
-// <-----Append axes to the chartGroup----->
+//Append axes to the chartGroup
 // Append a group to the SVG area and shift ('translate') it to the right and down to adhere
 // to the margins set in the "chartMargin" object.
   chartGroup.append("g").attr("transform", `translate(0, ${height})`).call(xAxis);
   chartGroup.append("g").call(yAxis);
 
-//<-----Generate scatter plot----->
+//Build scatter plot
 //Create code to build the scatter chart using the Census data
 chartGroup.selectAll("circle")
 .data(CensusData)

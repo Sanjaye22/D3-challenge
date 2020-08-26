@@ -12,8 +12,8 @@ var margin = {
 };
 
 // Define dimensions of the chart area
-var width = svgWidth - margin.left - margin.right;
-var height = svgHeight - margin.top - margin.bottom;
+var chartWidth = svgWidth - margin.left - margin.right;
+var chartHeight = svgHeight - margin.top - margin.bottom;
 
 // Select body, append SVG area to it, and set the dimensions
 var svg = d3
@@ -26,7 +26,7 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-//Load data from Census data.csv and format numerical values
+//Load data from Census data.csv and convert to numerical values
 d3.csv("assets/data/data.csv").then(function(CensusData) {
   CensusData.forEach(function(data) {
     data.healthcare = +data.healthcare;
@@ -35,25 +35,25 @@ d3.csv("assets/data/data.csv").then(function(CensusData) {
   });
 
   //Create X & Y Scales
-  const xScale = d3.scaleLinear()
+  var xScale = d3.scaleLinear()
     .domain(d3.extent(CensusData, d => d.healthcare))
-    .range([0, width])
+    .range([0, chartWidth])
     .nice(); 
 
-  const yScale = d3.scaleLinear()
+  var yScale = d3.scaleLinear()
     .domain([6,d3.max(CensusData, d => d.poverty)])
-    .range([height, 0])
+    .range([chartHeight, 0])
     .nice();
   
   //Create Axes
-  const xAxis = d3.axisBottom(xScale);
-  const yAxis = d3.axisLeft(yScale);
-
+  var xAxis = d3.axisBottom(xScale);
+  var yAxis = d3.axisLeft(yScale);
 
 //Append axes to the chartGroup
-// Append a group to the SVG area and shift ('translate') it to the right and down to adhere
-// to the margins set in the "chartMargin" object.
+// set x to the bottom of the chart
   chartGroup.append("g").attr("transform", `translate(0, ${height})`).call(xAxis);
+
+// set y to the y axis
   chartGroup.append("g").call(yAxis);
 
 //Build scatter plot
@@ -88,7 +88,7 @@ chartGroup.append("g")
   
   //============add axes titles=========
   chartGroup.append("text")
-        .attr("transform", `translate(${width / 2}, ${height + margin.top + 13})`)
+        .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + margin.top + 13})`)
         .attr("text-anchor", "middle")
         .attr("font-size", "16px")
         .attr("fill", "black")
@@ -97,7 +97,7 @@ chartGroup.append("g")
 
         chartGroup.append("text")
         .attr("y", 0 - ((margin.left / 2) + 2))
-        .attr("x", 0 - (height / 2))
+        .attr("x", 0 - (chartHeight / 2))
         .attr("text-anchor", "middle")
         .attr("font-size", "16px")
         .attr("fill", "black")
@@ -109,76 +109,4 @@ chartGroup.append("g")
   console.log(error);
 });
 
-
-//     const render = data => {
-//     const title = 'Poverty vs Healthcare'
-//     const xValue = d => d.poverty;
-//     const xAxisLabel = "TBD";
-
-//     const yValue = d => d.healthcare;
-//     const circleRadius = 10;
-//     const yAxisLabel = "weight";
-
-//     const margin = { top: 50, right: 40, bottom: 88, left: 150 };
-//     const innerWidth = width - margin.left - margin.right;
-//     const innerHeight = height - margin.top - margin.bottom;
-
-//     const xScale = ScaleLinear()
-//         .domain(extent(data, xValue));
-//             .range([0, innerWidth])
-//             .nice();
-
-//     const yScale = ScaleLinear()
-//         .domain(extent(data, yValue))
-//         .range([0, innerHeight])
-//         .nice();
-       
-//     const g = svg.append("g")
-//         .attr("transform", 'translate(${margin.left}, ${margin.top}');
-
-//     // const xAxisTickFormat = number => 
-//     //     format('.3s')(number)
-//     //         .replace('G', 'B');
-    
-//     const xAxis = axisBottom(xScale)
-//         // .tickFormat(xAxisTickFormat)
-//         .tickSize(-innerHeight)
-//         .tickPadding(15);
-
-//     const yAxis = axisleft(yScale)
-//          .tickSize(-innerWidth)
-//          .tickPadding(10);
-    
-//     const yAxisG = g.append('g').call(yAxis);
-//     yAsixG.SelectAll('.domain').remove();
-
-//     yAxisG.append('text')
-//         .attr('class', 'axis-label')
-//         .attr('y', 75)
-//         .attr('x', innerWidth / 2)
-//         .attr('fill', 'black')
-//         .attr(xAxisLabel);
-
-//     g.selectAll('circle').data(data)
-//         .enter().append('circle')
-//         .attr('cy', d => yScale(yValue(d)))
-//         .attr('cx', d => xScale(yValue(d)))
-//         .attr('r', 'circleRadius');
-
-//     g.append('text')
-//         .attr('class', 'title')
-//         .attr('y', -10)
-//         .text(title);
-
-    
-//     };
-//     csv("assets/data/data.csv").then(data => {
-//         data.forEach(d => {
-//             d.poverty = +d.poverty;            
-//     })});
-
-//     render(data);
-
-// });
-   
 

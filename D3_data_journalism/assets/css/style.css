@@ -1,49 +1,60 @@
-.iframeContainer {
-  padding: 20px;
-  border: 1px solid #e3e3e3;
-}
-
-/* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/)
-html {
-  position: relative;
-  min-height: 100%;
+/* #hairmetal {
+  border-radius: 8px;
 } */
 
-body {
-  padding-bottom: 80px;
-}
-
-#footer {
+#scatter::before {
   position: absolute;
-  bottom: 0;
-  width: 100%; 
-  height: 10px;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  text-align: left;
-  background-color: lightgray;
+  top: 50px;
+  left: 300px;
+  z-index: -1;
+  display: block;
+  width: 400px;
+  height: 300px;
+  content: " ";
+  /* background-image: url("maxresdefault.jpg"); */
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  opacity: 0.3;
+}
+
+.tooltip {
+  position: absolute;
+  width: 135px;
+  height: 60px;
+  padding: 2px;
+  padding-top: 8px;
+  font: 12px sans-serif;
+  color: white;
+  text-align: center;
+  background: #551aaf;
+  border: 0;
+  border-radius: 10px;
+}
+
+.axis-text {
+  font-family: sans-serif;
   font-weight: bold;
+  fill: #551aaf;
+  text-anchor: middle;
 }
 
-#footer p {
-  margin: 0;
-  font-size: 10px;
-  text-align: left;
+.active {
+  font-weight: bold;
+  fill: #000;
+  fill: #551aaf;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
 }
 
-.article-text{
-  padding-top: 10px;
-}
-.article{
-  padding-left: 40px;
-}
-p{
-  text-align: justify;
-  font-family: 'Times New Roman', Times, serif;
-  
+.inactive {
+  font-weight: lighter;
+  fill: #15da3c;
+  transition: fill 0.3s ease-out;
+  text-anchor: middle;
 }
 
-h1{
-  text-align:center;
-  font-family: 'Times New Roman', Times, serif;
+.inactive:hover {
+  fill: #031a49;
+  cursor: pointer;
 }

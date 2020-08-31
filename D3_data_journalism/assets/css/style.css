@@ -1,7 +1,29 @@
-/* #hairmetal {
-  border-radius: 8px;
+.iframeContainer {
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+}
+
+/* .container {
+  background-color: rgb(224, 205, 208);
 } */
 
+body {
+  padding-bottom: 20px;
+}
+
+h1 {
+  color: #2f2d31;
+  text-align: center;
+  font-style: italic;
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  text-align: justify;
+}
 #scatter::before {
   position: absolute;
   top: 50px;
@@ -11,7 +33,6 @@
   width: 400px;
   height: 300px;
   content: " ";
-  /* background-image: url("maxresdefault.jpg"); */
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
@@ -24,18 +45,18 @@
   height: 60px;
   padding: 2px;
   padding-top: 8px;
-  font: 12px sans-serif;
+  font: 10px helvetica;
   color: white;
   text-align: center;
-  background: #551aaf;
+  background: #612f07;
   border: 0;
   border-radius: 10px;
 }
 
 .axis-text {
-  font-family: sans-serif;
+  font-family: helvetica;
   font-weight: bold;
-  fill: #551aaf;
+  /* fill: #0f0e0f; */
   text-anchor: middle;
 }
 
@@ -49,7 +70,7 @@
 
 .inactive {
   font-weight: lighter;
-  fill: #15da3c;
+  fill: grey;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
 }
@@ -57,4 +78,38 @@
 .inactive:hover {
   fill: #031a49;
   cursor: pointer;
+}
+
+/* font size dependent on radius, see app.js */
+.stateText {
+  font-family: helvetica;
+  fill: #fff;
+  text-anchor: middle;
+}
+
+#footer {
+  /* position: relative; */
+  bottom: 0;
+  width: 100%; 
+  /* height: 10px; */
+  padding-top: 20px;
+  padding-bottom: 5px;
+  text-align: left;
+  background-color: lightgrey;
+  font-weight: bold;
+}
+
+#footer p {
+  margin: 0;
+  font-size: 10px;
+  text-align: left;
+}
+
+ .article-text{
+  padding-top: 10px;
+}
+
+.article{
+  padding-left: relative;
+  text-align: justify;
 }

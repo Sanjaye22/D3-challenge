@@ -4,9 +4,8 @@
 ## Background
 
 Analyze the current trends shaping people's lives, as well as creating charts, graphs, and interactive elements to help readers understand findings.
-The data set included with the assignment is based on 2014 ACS 1-year estimates: 
-*[https://data.census.gov/cedsci/](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml).
-*the data set includes data on rates of income, obesity, poverty, etc. by state. 
+The data set included with the assignment is based on 2014 ACS 1-year estimates: [https://data.census.gov/cedsci/](https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml).
+The data set includes data on rates of income, obesity, poverty, etc. by state. 
 
 
 ### Core Assignment: D3 Dabbler (Required Assignment)

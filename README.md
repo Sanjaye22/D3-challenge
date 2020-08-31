@@ -10,20 +10,20 @@ The data set includes data on rates of income, obesity, poverty, etc. by state.
 
 ### Core Assignment: D3 Dabbler (Required Assignment)
 
-*create a scatter plot between two of the data variables, such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
+* Create a scatter plot between two of the data variables, such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
 
 Using the D3 techniques, create a scatter plot that represents each state with circle elements. 
 
-*Include state abbreviations in the circles.
+* Include state abbreviations in the circles.
 
-*Create and situate your axes and labels to the left and bottom of the chart.
+* Create and situate your axes and labels to the left and bottom of the chart.
 
 
 ### Bonus: Impress the Boss (Optional Assignment)
 
 #### 1. More Data, More Dynamics
 
-*Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. 
+* Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. 
 Animate the transitions for your circles' locations as well as the range of your axes. 
 
 #### 2. Incorporate d3-tip

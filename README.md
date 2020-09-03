@@ -12,7 +12,7 @@ The data set includes data on rates of income, obesity, poverty, etc. by state.
 
 * Create a scatter plot between two of the data variables, such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
 
-Using the D3 techniques, create a scatter plot that represents each state with circle elements. 
+Using the D3 techniques, create a scatter plot that represents each state with circle elements:
 
 * Include state abbreviations in the circles.
 
@@ -24,7 +24,7 @@ Using the D3 techniques, create a scatter plot that represents each state with c
 #### 1. More Data, More Dynamics
 
 * Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. 
-Animate the transitions for your circles' locations as well as the range of your axes. 
+* Animate the transitions for your circles' locations as well as the range of your axes. 
 
 
 #### 2. Incorporate d3-tip

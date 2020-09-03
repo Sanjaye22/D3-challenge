@@ -26,6 +26,7 @@ Using the D3 techniques, create a scatter plot that represents each state with c
 * Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. 
 Animate the transitions for your circles' locations as well as the range of your axes. 
 
+
 #### 2. Incorporate d3-tip
 
 * Use `python -m http.server` to run the visualization to host the page at `localhost:8000` in your web browser.

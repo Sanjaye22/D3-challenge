@@ -13,7 +13,7 @@ var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 // Create an SVG wrapper, append an SVG group that will hold our chart,
-// and shift the latter by left and top margins.
+// and shift the latter by left and top margins
 var svg = d3
   .select("#scatter")
   .append("svg")
@@ -66,7 +66,7 @@ function renderAxesY(newYScale, yAxis) {
   return yAxis;
 }
 
-// updating circles group with a transition to new circle
+// updating circles group with transition to new circle
 function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
 
   circlesGroup.transition()
@@ -76,7 +76,7 @@ function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYA
   return circlesGroup;
 }
 
-//updating circles text with a transition on labels
+//updating circles text with transition on labels
 function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
   textGroup.transition()
     .duration(1000)
@@ -85,7 +85,7 @@ function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
   return textGroup;
 }
 
-//function to stylize x-axis values for tooltips
+//function to style x-axis values for tooltips
 function style_X(value, chosenXAxis) {
   if (chosenXAxis === "poverty") {
     return `${value}%`;
@@ -131,7 +131,7 @@ function updateToolTip(circlesGroup, chosenXAxis, chosenYAxis) {
 
   circlesGroup.call(toolTip);
 
-  //mouseover event
+  //Setup mouseover event
   circlesGroup.on("mouseover", toolTip.show)
     .on("mouseout", toolTip.hide);
   return circlesGroup;
@@ -157,13 +157,13 @@ d3.csv("assets/data/data.csv").then(function (censusData, err) {
   var bottomAxis = d3.axisBottom(xLinearScale);
   var leftAxis = d3.axisLeft(yLinearScale);
 
-  // append x axis
+  // append x-axis
   var xAxis = chartGroup.append("g")
     .classed("x-axis", true)
     .attr("transform", `translate(0, ${height})`)
     .call(bottomAxis);
 
-  // append y axis
+  // append y-axis
   var yAxis = chartGroup.append("g")
     .classed("y-axis", true)
     .call(leftAxis);

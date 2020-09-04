@@ -180,6 +180,7 @@ d3.csv("assets/data/data.csv").then(function (censusData, err) {
     .attr("fill", "blue")
     .attr("opacity", "1");
 
+    //append text group for circles
   var textGroup = chartGroup.selectAll(".stateText")
     .data(censusData)
     .enter()
@@ -258,7 +259,7 @@ d3.csv("assets/data/data.csv").then(function (censusData, err) {
         // updates x scale for new data
         xLinearScale = xScale(censusData, chosenXAxis);
 
-        // updates x axis with transition
+        // updates x-axis with transition
         xAxis = renderAxesX(xLinearScale, xAxis);
 
         // update circles with new x values
